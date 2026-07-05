@@ -15,12 +15,12 @@ function templateTable() {
 
 function help() {
   console.log(`
-hwpx-pyeonram v${pkg.version}
+cdsa-hwptemp v${pkg.version}
 정부·공공기관 HWPX 서식 문서를 생성합니다. (기본: 행정업무운영 편람)
 
 사용법
-  npx hwpx-pyeonram <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
-  echo "# 제목" | npx hwpx-pyeonram --stdin -t bogo -o out.hwpx
+  npx cdsa-hwptemp <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
+  echo "# 제목" | npx cdsa-hwptemp --stdin -t bogo -o out.hwpx
 
 옵션
   -o, --out <파일>       출력 경로 (기본: 입력파일명.hwpx)
@@ -40,7 +40,7 @@ ${templateTable()}
   표: …  (표 앞줄) 표 제목    | a | b |  표    **굵게**  본문 강조
 
 예시
-  npx hwpx-pyeonram 보고서.md -t jichim -o 보고서.hwpx
+  npx cdsa-hwptemp 보고서.md -t jichim -o 보고서.hwpx
 `);
 }
 

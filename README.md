@@ -1,11 +1,11 @@
-# hwpx-pyeonram
+# cdsa-hwptemp
 
 정부·공공기관 서식 그대로 HWPX(한글) 문서를 만드는 CLI · 라이브러리입니다.
 마크다운/텍스트만 넣으면 선택한 서식의 폰트·아웃라인·표 디자인이 적용된 `.hwpx`가 나옵니다.
 
 ```bash
-npx hwpx-pyeonram 보고서.md -o 보고서.hwpx            # 기본: 행정업무운영 편람 서식
-npx hwpx-pyeonram 보고서.md -t bogo -o 보고서.hwpx    # 부처 업무보고 서식
+npx cdsa-hwptemp 보고서.md -o 보고서.hwpx            # 기본: 행정업무운영 편람 서식
+npx cdsa-hwptemp 보고서.md -t bogo -o 보고서.hwpx    # 부처 업무보고 서식
 ```
 
 ## 지원 서식
@@ -21,7 +21,7 @@ npx hwpx-pyeonram 보고서.md -t bogo -o 보고서.hwpx    # 부처 업무보�
 | `gongmo` | 공모·포상 계획안 | 공모 계획안, 포상·추천 공고 |
 
 각 서식은 정품 원본 HWPX에서 추출한 `header.xml` 스타일 백본을 그대로 사용하므로
-한글에서 열었을 때 원본과 동일한 디자인으로 보입니다. 목록 확인: `npx hwpx-pyeonram --list`
+한글에서 열었을 때 원본과 동일한 디자인으로 보입니다. 목록 확인: `npx cdsa-hwptemp --list`
 
 설치 없이 `npx` 한 줄로 실행됩니다. (Node.js 14+ 필요)
 
@@ -31,12 +31,12 @@ npm 레지스트리에 올리지 않아도, GitHub 저장소만으로 `npx` 실�
 
 ```bash
 # 셋 다 동일하게 동작
-npx github:cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
-npx cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
-npx https://github.com/cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
+npx github:cdsassj00/cdsa-hwptemp 보고서.md -o 보고서.hwpx
+npx cdsassj00/cdsa-hwptemp 보고서.md -o 보고서.hwpx
+npx https://github.com/cdsassj00/cdsa-hwptemp 보고서.md -o 보고서.hwpx
 
 # 특정 브랜치/태그 지정
-npx github:cdsassj00/hwpx-pyeonram#v1.0.0 보고서.md -o 보고서.hwpx
+npx github:cdsassj00/cdsa-hwptemp#v1.0.0 보고서.md -o 보고서.hwpx
 ```
 
 > `npx`는 GitHub 패키지를 캐시합니다. 예전에 실행한 적이 있는 PC에서 최신 버전이 안 잡히면
@@ -49,9 +49,9 @@ npx github:cdsassj00/hwpx-pyeonram#v1.0.0 보고서.md -o 보고서.hwpx
 
 ```bash
 # 전역 설치 (모든 프로젝트에서 사용)
-git clone https://github.com/cdsassj00/hwpx-pyeonram.git ~/.claude/skills/hwpx-pyeonram
+git clone https://github.com/cdsassj00/cdsa-hwptemp.git ~/.claude/skills/cdsa-hwptemp
 # Windows PowerShell
-git clone https://github.com/cdsassj00/hwpx-pyeonram.git $env:USERPROFILE\.claude\skills\hwpx-pyeonram
+git clone https://github.com/cdsassj00/cdsa-hwptemp.git $env:USERPROFILE\.claude\skills\cdsa-hwptemp
 ```
 
 설치 후 Claude Code에서 "업무보고 서식으로 hwpx 만들어줘"처럼 요청하면
@@ -101,7 +101,7 @@ git clone https://github.com/cdsassj00/hwpx-pyeonram.git $env:USERPROFILE\.claud
 ## CLI
 
 ```bash
-npx hwpx-pyeonram <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
+npx cdsa-hwptemp <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
 
   -o, --out <파일>       출력 경로 (기본: 입력파일명.hwpx)
   -t, --template <서식>  적용할 서식 id (기본: pyeonram, 목록은 --list)
@@ -116,10 +116,10 @@ npx hwpx-pyeonram <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
 
 ```bash
 # 파일 입력 + 서식 지정
-npx hwpx-pyeonram report.md -t jichim -o report.hwpx
+npx cdsa-hwptemp report.md -t jichim -o report.hwpx
 
 # 파이프 입력 (서식 미지정 시 pyeonram)
-cat report.md | npx hwpx-pyeonram --stdin -t lecture -o report.hwpx
+cat report.md | npx cdsa-hwptemp --stdin -t lecture -o report.hwpx
 ```
 
 ---
@@ -127,7 +127,7 @@ cat report.md | npx hwpx-pyeonram --stdin -t lecture -o report.hwpx
 ## 라이브러리 API
 
 ```js
-const { generateHwpx, parse } = require('hwpx-pyeonram');
+const { generateHwpx, parse } = require('cdsa-hwptemp');
 const fs = require('fs');
 
 // 마크다운 → HWPX 버퍼 (template 미지정 시 pyeonram)

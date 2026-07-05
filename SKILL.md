@@ -1,5 +1,5 @@
 ---
-name: hwpx-pyeonram
+name: cdsa-hwptemp
 description: >
   정부·공공기관 서식 그대로 HWPX(한글) 문서를 생성하는 스킬. 행정업무운영 편람,
   부처 업무보고, 실행지침, 강의계획서, 자문의견서, 교육 제안서, 공모 계획안 등
@@ -65,7 +65,7 @@ description: >
 ```bash
 node bin/cli.js 입력.md -t bogo -o 문서명.hwpx
 # 또는 GitHub 배포본으로
-npx cdsassj00/hwpx-pyeonram 입력.md -t jichim -o 문서명.hwpx
+npx cdsassj00/cdsa-hwptemp 입력.md -t jichim -o 문서명.hwpx
 ```
 
 라이브러리로 직접 호출도 가능하다.
