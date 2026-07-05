@@ -48,4 +48,30 @@ for (const [ref, tag] of [
 }
 assert(sec.includes('charPrIDRef="478"'), '인라인 볼드 미적용');
 assert(sec.includes('borderFillIDRef="98"'), '표 헤더 음영 미적용');
+
+// 패키지 참조 무결성: content.hpf/container.rdf 가 참조하는 파트가 실제 ZIP 에 존재
+// (없는 파트를 참조하면 한글이 "손상된 파일"로 판정)
+const present = new Set();
+(function walk(d, rel) {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    const r = rel ? rel + '/' + e.name : e.name;
+    if (e.isDirectory()) walk(path.join(d, e.name), r);
+    else present.add(r);
+  }
+})(dir, '');
+const hpf = fs.readFileSync(path.join(dir, 'Contents/content.hpf'), 'utf8');
+for (const m of hpf.matchAll(/href="([^"]+)"/g)) {
+  assert(present.has(m[1]), `content.hpf 가 참조하는 ${m[1]} 이 패키지에 없음`);
+}
+const rdf = fs.readFileSync(path.join(dir, 'META-INF/container.rdf'), 'utf8');
+for (const m of rdf.matchAll(/rdf:(?:resource|about)="([^"]+)"/g)) {
+  if (!m[1] || m[1].includes('://')) continue;
+  assert(present.has(m[1]), `container.rdf 가 참조하는 ${m[1]} 이 패키지에 없음`);
+}
+
+// header 의 secCnt 가 실제 섹션 파일 수와 일치해야 한다.
+// (불일치 시 한글이 없는 섹션을 찾다가 "손상된 파일"로 판정)
+const secCnt = (hdr.match(/secCnt="(\d+)"/) || [])[1];
+const nSecs = [...present].filter((n) => /^Contents\/section\d+\.xml$/.test(n)).length;
+assert(String(nSecs) === secCnt, `header secCnt=${secCnt} 와 실제 섹션 수 ${nSecs} 불일치`);
 console.log('smoke test 통과 ✅');

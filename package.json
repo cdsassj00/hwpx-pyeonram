@@ -1,6 +1,6 @@
 {
   "name": "hwpx-pyeonram",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "행정안전부 「행정업무운영 편람」 서식으로 HWPX(한글) 문서를 생성하는 CLI/라이브러리. KoPub 폰트·장/절/항목 아웃라인·표 서식을 그대로 재현하며 한글 호환성 100%.",
   "keywords": [
     "hwpx",

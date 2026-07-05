@@ -180,12 +180,19 @@ function generateHwpx(input, opts) {
 
   const read = (p) => fs.readFileSync(path.join(TPL, p));
 
+  // 원본 편람 header 는 14개 섹션 문서에서 추출되어 secCnt="14" 로 선언되어 있다.
+  // 이 패키지는 section0 하나만 담으므로 개수를 맞추지 않으면
+  // 한글이 없는 section1~13 을 찾다가 "손상된 파일"로 판정한다.
+  const headerXml = read('Contents/header.xml')
+    .toString('utf8')
+    .replace(/secCnt="\d+"/, 'secCnt="1"');
+
   // HWPX 규칙: mimetype 이 첫 엔트리, STORED. 나머지 DEFLATE.
   const entries = [
     { name: 'mimetype', data: read('mimetype'), store: true },
     { name: 'version.xml', data: read('version.xml') },
     { name: 'settings.xml', data: read('settings.xml') },
-    { name: 'Contents/header.xml', data: read('Contents/header.xml') },
+    { name: 'Contents/header.xml', data: Buffer.from(headerXml, 'utf8') },
     { name: 'Contents/section0.xml', data: Buffer.from(sectionXml, 'utf8') },
     { name: 'Contents/content.hpf', data: read('Contents/content.hpf') },
     { name: 'Preview/PrvText.txt', data: Buffer.from(prvText, 'utf8') },
