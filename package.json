@@ -1,0 +1,50 @@
+{
+  "name": "hwpx-pyeonram",
+  "version": "1.0.0",
+  "description": "행정안전부 「행정업무운영 편람」 서식으로 HWPX(한글) 문서를 생성하는 CLI/라이브러리. KoPub 폰트·장/절/항목 아웃라인·표 서식을 그대로 재현하며 한글 호환성 100%.",
+  "keywords": [
+    "hwpx",
+    "hwp",
+    "hancom",
+    "hangul",
+    "한글",
+    "편람",
+    "행정업무운영편람",
+    "행정안전부",
+    "공문서",
+    "gov",
+    "korean-government",
+    "document-generator"
+  ],
+  "license": "MIT",
+  "bin": {
+    "hwpx-pyeonram": "bin/cli.js"
+  },
+  "main": "src/generate.js",
+  "exports": {
+    ".": "./src/generate.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "template/",
+    "examples/",
+    "test/",
+    "README.md",
+    "SKILL.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.js",
+    "example": "node bin/cli.js examples/sample.md -o examples/sample.hwpx"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdsassj00/hwpx-pyeonram.git"
+  },
+  "author": "CDSA (한국데이터사이언티스트협회)",
+  "dependencies": {}
+}
