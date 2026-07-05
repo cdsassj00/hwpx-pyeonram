@@ -1,11 +1,27 @@
 # hwpx-pyeonram
 
-행정안전부 **「행정업무운영 편람」** 서식 그대로 HWPX(한글) 문서를 만드는 CLI · 라이브러리입니다.
-마크다운/텍스트만 넣으면 KoPub 폰트, 장·절·항목 아웃라인, 표 서식이 적용된 `.hwpx`가 나옵니다.
+정부·공공기관 서식 그대로 HWPX(한글) 문서를 만드는 CLI · 라이브러리입니다.
+마크다운/텍스트만 넣으면 선택한 서식의 폰트·아웃라인·표 디자인이 적용된 `.hwpx`가 나옵니다.
 
 ```bash
-npx hwpx-pyeonram 보고서.md -o 보고서.hwpx
+npx hwpx-pyeonram 보고서.md -o 보고서.hwpx            # 기본: 행정업무운영 편람 서식
+npx hwpx-pyeonram 보고서.md -t bogo -o 보고서.hwpx    # 부처 업무보고 서식
 ```
+
+## 지원 서식
+
+| id | 서식 | 어울리는 문서 |
+| --- | --- | --- |
+| `pyeonram` | 행정업무운영 편람 (기본) | 공식 편람·매뉴얼, 제N장/제N절 장문 보고서 |
+| `bogo` | 부처 업무보고 | 정부 업무보고·정책 보고 자료 (Ⅰ. / □ / ㅇ) |
+| `jichim` | 실행지침·실무 가이드 | 내부 지침, 실무 가이드, 원칙 문서 |
+| `lecture` | 강의계획서·교육과정 | 교육과정 개요, 강의·훈련 계획 |
+| `opinion` | 자문의견서·심사 양식 | 위원회 의견서, 심사·평가 양식 |
+| `proposal` | 교육 제안서 | 교육·사업 제안서, 과정 소개 |
+| `gongmo` | 공모·포상 계획안 | 공모 계획안, 포상·추천 공고 |
+
+각 서식은 정품 원본 HWPX에서 추출한 `header.xml` 스타일 백본을 그대로 사용하므로
+한글에서 열었을 때 원본과 동일한 디자인으로 보입니다. 목록 확인: `npx hwpx-pyeonram --list`
 
 설치 없이 `npx` 한 줄로 실행됩니다. (Node.js 14+ 필요)
 
@@ -66,21 +82,25 @@ npx github:cdsassj00/hwpx-pyeonram#v1.0.0 보고서.md -o 보고서.hwpx
 ## CLI
 
 ```bash
-npx hwpx-pyeonram <입력.md> [-o 출력.hwpx] [옵션]
+npx hwpx-pyeonram <입력.md> [-o 출력.hwpx] [-t 서식] [옵션]
 
-  -o, --out <파일>    출력 경로 (기본: 입력파일명.hwpx)
-      --stdin         표준입력에서 읽기
-      --no-autonum    자동 번호매김 끄기
-  -h, --help          도움말
-  -v, --version       버전
+  -o, --out <파일>       출력 경로 (기본: 입력파일명.hwpx)
+  -t, --template <서식>  적용할 서식 id (기본: pyeonram, 목록은 --list)
+      --list             사용 가능한 서식 목록
+      --stdin            표준입력에서 읽기
+      --no-autonum       자동 번호매김·항목기호 끄기
+  -h, --help             도움말
+  -v, --version          버전
 ```
 
-```bash
-# 파일 입력
-npx hwpx-pyeonram report.md -o report.hwpx
+`-t` 없이 터미널에서 실행하면 서식을 번호로 고르는 대화형 프롬프트가 뜹니다.
 
-# 파이프 입력
-cat report.md | npx hwpx-pyeonram --stdin -o report.hwpx
+```bash
+# 파일 입력 + 서식 지정
+npx hwpx-pyeonram report.md -t jichim -o report.hwpx
+
+# 파이프 입력 (서식 미지정 시 pyeonram)
+cat report.md | npx hwpx-pyeonram --stdin -t lecture -o report.hwpx
 ```
 
 ---
@@ -91,8 +111,8 @@ cat report.md | npx hwpx-pyeonram --stdin -o report.hwpx
 const { generateHwpx, parse } = require('hwpx-pyeonram');
 const fs = require('fs');
 
-// 마크다운 → HWPX 버퍼
-const buf = generateHwpx('# 개요\n본문입니다.', { autonum: true });
+// 마크다운 → HWPX 버퍼 (template 미지정 시 pyeonram)
+const buf = generateHwpx('# 개요\n본문입니다.', { template: 'bogo', autonum: true });
 fs.writeFileSync('out.hwpx', buf);
 
 // 콘텐츠 블록을 직접 구성해서 넘길 수도 있음
@@ -105,6 +125,18 @@ fs.writeFileSync('out2.hwpx', generateHwpx('', { blocks }));
 ```
 
 블록 타입: `chapter · section · h1 · h2 · h3 · h4 · h5 · body · note · divider · blank · table`
+
+---
+
+## 새 서식 추가
+
+원본 `.hwpx` 한 개만 있으면 서식을 계속 늘릴 수 있습니다.
+
+```bash
+python tools/extract_template.py 원본.hwpx templates/새서식아이디
+# templates/새서식아이디/template.json 의 role/borderFill/numbering 을 채운 뒤
+node test/smoke.js
+```
 
 ---
 

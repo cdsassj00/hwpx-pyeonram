@@ -1,0 +1,25 @@
+{
+  "name": "실행지침·실무 가이드",
+  "description": "표지 제목 + Ⅰ. 장 / □ ○ - 항목 구조의 실무 지침서 서식 — 연한 파랑 음영 표",
+  "numbering": "gov",
+  "bodyWidth": 48190,
+  "inlineBoldChar": 17,
+  "borderFill": { "header": 8, "body": 7 },
+  "role": {
+    "divider":      { "style": 0, "para": 21, "char": 12 },
+    "chapter":      { "style": 0, "para": 24, "char": 17 },
+    "section":      { "style": 0, "para": 23, "char": 16 },
+    "h1":           { "style": 0, "para": 25, "char": 16 },
+    "h2":           { "style": 0, "para": 27, "char": 16 },
+    "h3":           { "style": 0, "para": 30, "char": 17 },
+    "h4":           { "style": 0, "para": 27, "char": 16 },
+    "h5":           { "style": 0, "para": 27, "char": 16 },
+    "body":         { "style": 0, "para": 0,  "char": 14 },
+    "note":         { "style": 0, "para": 27, "char": 16 },
+    "tableCaption": { "style": 0, "para": 22, "char": 15 },
+    "tableHeader":  { "style": 0, "para": 0,  "char": 10 },
+    "tableCellL":   { "style": 0, "para": 0,  "char": 14 },
+    "tableCellC":   { "style": 0, "para": 0,  "char": 14 },
+    "blank":        { "style": 0, "para": 0,  "char": 16 }
+  }
+}

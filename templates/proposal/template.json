@@ -1,0 +1,25 @@
+{
+  "name": "교육 제안서",
+  "description": "과정 제목 박스 + □ ○ - 항목과 노랑 음영 편성표의 교육과정 제안서 서식",
+  "numbering": "box",
+  "bodyWidth": 48190,
+  "inlineBoldChar": 25,
+  "borderFill": { "header": 12, "body": 11 },
+  "role": {
+    "divider":      { "style": 0,  "para": 35, "char": 41 },
+    "chapter":      { "style": 0,  "para": 36, "char": 25 },
+    "section":      { "style": 0,  "para": 38, "char": 25 },
+    "h1":           { "style": 0,  "para": 38, "char": 46 },
+    "h2":           { "style": 0,  "para": 38, "char": 37 },
+    "h3":           { "style": 0,  "para": 38, "char": 37 },
+    "h4":           { "style": 0,  "para": 38, "char": 37 },
+    "h5":           { "style": 0,  "para": 38, "char": 37 },
+    "body":         { "style": 0,  "para": 38, "char": 46 },
+    "note":         { "style": 0,  "para": 43, "char": 36 },
+    "tableCaption": { "style": 0,  "para": 31, "char": 32 },
+    "tableHeader":  { "style": 0,  "para": 27, "char": 36 },
+    "tableCellL":   { "style": 25, "para": 40, "char": 36 },
+    "tableCellC":   { "style": 25, "para": 40, "char": 36 },
+    "blank":        { "style": 0,  "para": 37, "char": 48 }
+  }
+}

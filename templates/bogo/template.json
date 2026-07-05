@@ -1,0 +1,26 @@
+{
+  "name": "부처 업무보고",
+  "description": "정부 부처 업무보고 자료 서식 — Ⅰ. 장 / □ (표제) / ㅇ 항목, 청록 음영 통계표",
+  "numbering": "gov",
+  "bodyWidth": 48190,
+  "inlineBoldChar": 15,
+  "borderFill": { "header": 266, "body": 253 },
+  "role": {
+    "divider":      { "style": 0,  "para": 64,  "char": 7 },
+    "chapter":      { "style": 0,  "para": 64,  "char": 7 },
+    "section":      { "style": 0,  "para": 134, "char": 12 },
+    "h1":           { "style": 0,  "para": 155, "char": 12 },
+    "h2":           { "style": 0,  "para": 155, "char": 12 },
+    "h3":           { "style": 0,  "para": 155, "char": 12 },
+    "h4":           { "style": 0,  "para": 155, "char": 12 },
+    "h5":           { "style": 0,  "para": 155, "char": 12 },
+    "body":         { "style": 0,  "para": 155, "char": 12 },
+    "note":         { "style": 0,  "para": 155, "char": 12 },
+    "tableCaption": { "style": 0,  "para": 34,  "char": 200 },
+    "tableHeader":  { "style": 26, "para": 34,  "char": 200 },
+    "tableCellL":   { "style": 26, "para": 42,  "char": 197 },
+    "tableCellC":   { "style": 26, "para": 42,  "char": 197 },
+    "blank":        { "style": 0,  "para": 46,  "char": 189 }
+  },
+  "bullets": { "h1": "ㅇ" }
+}

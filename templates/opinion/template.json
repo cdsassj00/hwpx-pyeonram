@@ -1,0 +1,25 @@
+{
+  "name": "자문의견서·심사 양식",
+  "description": "인적사항 표 + 의견 기술 구조의 위원회·자문 양식 서식 — □ 항목, 회색 음영 표",
+  "numbering": "box",
+  "bodyWidth": 48190,
+  "inlineBoldChar": 21,
+  "borderFill": { "header": 6, "body": 5 },
+  "role": {
+    "divider":      { "style": 0, "para": 51, "char": 58 },
+    "chapter":      { "style": 0, "para": 14, "char": 60 },
+    "section":      { "style": 0, "para": 54, "char": 60 },
+    "h1":           { "style": 0, "para": 55, "char": 65 },
+    "h2":           { "style": 0, "para": 56, "char": 66 },
+    "h3":           { "style": 0, "para": 56, "char": 66 },
+    "h4":           { "style": 0, "para": 56, "char": 66 },
+    "h5":           { "style": 0, "para": 56, "char": 66 },
+    "body":         { "style": 0, "para": 52, "char": 62 },
+    "note":         { "style": 0, "para": 56, "char": 66 },
+    "tableCaption": { "style": 0, "para": 55, "char": 66 },
+    "tableHeader":  { "style": 0, "para": 53, "char": 61 },
+    "tableCellL":   { "style": 0, "para": 52, "char": 62 },
+    "tableCellC":   { "style": 0, "para": 52, "char": 62 },
+    "blank":        { "style": 0, "para": 55, "char": 67 }
+  }
+}

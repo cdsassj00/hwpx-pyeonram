@@ -1,0 +1,25 @@
+{
+  "name": "행정업무운영 편람",
+  "description": "행정안전부 「행정업무운영 편람」 공식 서식 — 제N장/제N절 아웃라인, KoPub돋움/바탕 폰트, 회색 음영 표",
+  "numbering": "pyeonram",
+  "bodyWidth": 39572,
+  "inlineBoldChar": 478,
+  "borderFill": { "header": 98, "body": 19 },
+  "role": {
+    "divider":      { "style": 1,  "para": 33,  "char": 789 },
+    "chapter":      { "style": 26, "para": 2,   "char": 64 },
+    "section":      { "style": 8,  "para": 619, "char": 91 },
+    "h1":           { "style": 3,  "para": 2,   "char": 251 },
+    "h2":           { "style": 4,  "para": 859, "char": 340 },
+    "h3":           { "style": 5,  "para": 779, "char": 426 },
+    "h4":           { "style": 6,  "para": 304, "char": 602 },
+    "h5":           { "style": 7,  "para": 334, "char": 607 },
+    "body":         { "style": 2,  "para": 913, "char": 206 },
+    "note":         { "style": 9,  "para": 876, "char": 338 },
+    "tableCaption": { "style": 15, "para": 57,  "char": 34 },
+    "tableHeader":  { "style": 16, "para": 3,   "char": 36 },
+    "tableCellL":   { "style": 18, "para": 972, "char": 355 },
+    "tableCellC":   { "style": 19, "para": 970, "char": 355 },
+    "blank":        { "style": 0,  "para": 19,  "char": 138 }
+  }
+}

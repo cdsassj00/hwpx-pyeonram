@@ -1,0 +1,25 @@
+{
+  "name": "공모·포상 계획안",
+  "description": "정부 공모(계획안)·포상 추천 서식 — □ ○ - 항목, 서식 표 구조",
+  "numbering": "box",
+  "bodyWidth": 48190,
+  "inlineBoldChar": 19,
+  "borderFill": { "header": 5, "body": 4 },
+  "role": {
+    "divider":      { "style": 0,  "para": 112, "char": 311 },
+    "chapter":      { "style": 0,  "para": 133, "char": 22 },
+    "section":      { "style": 0,  "para": 134, "char": 1 },
+    "h1":           { "style": 0,  "para": 250, "char": 341 },
+    "h2":           { "style": 0,  "para": 250, "char": 341 },
+    "h3":           { "style": 0,  "para": 250, "char": 341 },
+    "h4":           { "style": 0,  "para": 250, "char": 341 },
+    "h5":           { "style": 0,  "para": 250, "char": 341 },
+    "body":         { "style": 0,  "para": 134, "char": 1 },
+    "note":         { "style": 0,  "para": 82,  "char": 146 },
+    "tableCaption": { "style": 0,  "para": 112, "char": 311 },
+    "tableHeader":  { "style": 68, "para": 33,  "char": 122 },
+    "tableCellL":   { "style": 0,  "para": 100, "char": 105 },
+    "tableCellC":   { "style": 0,  "para": 100, "char": 105 },
+    "blank":        { "style": 0,  "para": 133, "char": 50 }
+  }
+}

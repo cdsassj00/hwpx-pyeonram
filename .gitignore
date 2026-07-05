@@ -5,3 +5,5 @@ node_modules/
 hwpx_analysis/
 /*.hwpx
 examples/*.hwpx
+template-sources/
+.omc/
