@@ -9,6 +9,20 @@ npx hwpx-pyeonram 보고서.md -o 보고서.hwpx
 
 설치 없이 `npx` 한 줄로 실행됩니다. (Node.js 14+ 필요)
 
+### GitHub에서 바로 실행 (npm 게시 없이도 가능)
+
+npm 레지스트리에 올리지 않아도, GitHub 저장소만으로 `npx` 실행이 됩니다.
+
+```bash
+# 셋 다 동일하게 동작
+npx github:cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
+npx cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
+npx https://github.com/cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
+
+# 특정 브랜치/태그 지정
+npx github:cdsassj00/hwpx-pyeonram#v1.0.0 보고서.md -o 보고서.hwpx
+```
+
 ---
 
 ## 왜 이 도구인가
