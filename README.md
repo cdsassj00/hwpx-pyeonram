@@ -39,6 +39,25 @@ npx https://github.com/cdsassj00/hwpx-pyeonram 보고서.md -o 보고서.hwpx
 npx github:cdsassj00/hwpx-pyeonram#v1.0.0 보고서.md -o 보고서.hwpx
 ```
 
+> `npx`는 GitHub 패키지를 캐시합니다. 예전에 실행한 적이 있는 PC에서 최신 버전이 안 잡히면
+> `npx clear-npx-cache` 후 다시 실행하세요.
+
+### Claude Code 스킬로 설치
+
+이 저장소는 그 자체로 Claude Code 스킬입니다(`SKILL.md` + 실행 코드 동봉).
+스킬 폴더에 클론만 하면 끝납니다.
+
+```bash
+# 전역 설치 (모든 프로젝트에서 사용)
+git clone https://github.com/cdsassj00/hwpx-pyeonram.git ~/.claude/skills/hwpx-pyeonram
+# Windows PowerShell
+git clone https://github.com/cdsassj00/hwpx-pyeonram.git $env:USERPROFILE\.claude\skills\hwpx-pyeonram
+```
+
+설치 후 Claude Code에서 "업무보고 서식으로 hwpx 만들어줘"처럼 요청하면
+서식 선택부터 생성까지 스킬이 처리합니다. 업데이트는 해당 폴더에서 `git pull` 한 번이면 됩니다.
+(Node.js 14+ 필요)
+
 ---
 
 ## 왜 이 도구인가
